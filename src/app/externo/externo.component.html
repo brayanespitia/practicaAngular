@@ -1,7 +1,40 @@
-<input type="text" [(ngModel)]="userId" (keyup.enter)="cargaUsuario()" />
+{{fecha | date:'fullDate' | uppercase}} <br>
+{{'hola mundo usando pipes' | uppercase}} <br>
+{{4 | calculadora:2}}
 
+<hr>
+<input type="text" [(ngModel)]="userId" (keyup.enter)="cargaUsuario()" />
+<div *ngif="!user">
+
+    cargando...
+</div>
 
 <div *ngIf="user">
-    <img src="{{user.avatar}}" width="200px" alt="">
+    <img src="{{user.avatar}}" alt="">
     <h2>{{user.first_name + " "+ user.last_name}}</h2>
+</div>
+
+<hr>
+<h2>vrear usuario</h2>
+
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+
+    <p>
+
+        <label for="name">nombre</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="new_user.name"><br>
+
+
+        <label for="job"> trabajo</label>
+        <input type="text" name="job" #job="ngModel" [(ngModel)]="new_user.job"> <br>
+
+        <input type="submit" value="Guardar usuario" [disabled]="!newUser.form.valid">
+    </p>
+
+</form>
+
+<div *ngIf="usuario_guardado">
+    <h2>el usuario se ha guardado</h2>
+    <h2>{{usuario_guardado.name}}</h2>
+    <h2>{{usuario_guardado.job}}</h2>
 </div>

@@ -11,6 +11,8 @@ import { CursosComponent } from "./cursos/cursos.component";
 import { FormsModule } from "@angular/forms";
 import { HomeComponent } from "./home/home.component";
 import { ExternoComponent } from "./externo/externo.component";
+import { CalculadoraPipe } from "./pipes/calculadora.pipe";
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ExternoComponent } from "./externo/externo.component";
     ZapatillasComponent,
     CursosComponent,
     HomeComponent,
-    ExternoComponent
+    ExternoComponent,
+    CalculadoraPipe,
+    ContactoComponent
   ],
   imports: [BrowserModule, FormsModule, routing, HttpClientModule],
   providers: [appRoutingProviders],
